@@ -11,45 +11,6 @@ use DB;
 
 class UserController extends Controller
 {
-    public function show_dashboard()
-    {
-        $students = Students::query()
-            ->select(DB::raw('COUNT(*) AS stud_count'))
-            ->groupBy('year_level')
-            ->get();
-
-        $entries = [];
-        foreach ($students as $s) {
-            array_push($entries, $s->stud_count);
-        }
-
-        $data = [
-            'labels' => ['1st Year', '2nd Year', '3rd Year', '4th Year'],
-            'data' => $entries,
-        ];
-
-        return view('/admin_dashboard', compact('data'));
-    }
-
-    public function upload_profile_picture(Request $r)
-    {
-        $sp = new StudentsPhotos;
-        $sp->student_id = Session::get('student_id');
-        if ($r->file('profile_picture')) {
-            $file = $r->file('profile_picture');
-            $filename = date('YmdHiu') . $file->getClientOriginalName();
-            $file->move(public_path('img/user_profiles'), $filename);
-            $sp->image = $filename;
-        }
-        $sp->save();
-
-        return redirect('/user_account')->with('success', 'Profile picture updated!');
-    }
-
-    public function upload_profile_picture_form()
-    {
-        return view('profile_upload_picture');
-    }
 
     public function logout()
     {
@@ -62,7 +23,7 @@ class UserController extends Controller
 
     public function login(Request $r)
     {
-        // User::where("user_id", "=", 1602)
+        // User::where("user_id", "=", 1)
         //     ->update(
         //         [
         //             'password' => Hash::make("1234")
@@ -84,7 +45,7 @@ class UserController extends Controller
                 Session::put('role', $user->role);
                 Session::put('student_id', $user->student_id);
                 if (Session::get('role') == 'admin') {
-                    return redirect('/students')->with('success', 'Logged in as admin!');
+                    return redirect('/admin_dashboard')->with('success', 'Logged in as admin!');
                 } else if (Session::get('role') == 'user') {
                     return redirect('/user_dashboard')->with('success', 'Welcome, ' . Session::get('first_name') . '!');
                 }
