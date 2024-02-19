@@ -22,10 +22,8 @@
             <th>Gender</th>
             <th>Mobile Number</th>
             <th>Email Address</th>
-            <th>Date Entered</th>
             <th>Position</th>
             <th>Department</th>
-
         </tr>
         @foreach ($faculty as $f)
         <tr>
@@ -37,7 +35,6 @@
             <td>{{$f -> gender}}</td>
             <td>{{$f -> mobile_number}}</td>
             <td>{{$f -> email_address}}</td>
-            <td>{{$f -> date_entered}}</td>
             <td>{{$f -> position}}</td>
             <td>{{$f -> department}}</td>
         </tr>

@@ -11,8 +11,6 @@ use DB;
 
 class UserController extends Controller
 {
-<<<<<<< HEAD
-
     public function show_dashboard()
     {
         $students = Students::query()
@@ -30,15 +28,31 @@ class UserController extends Controller
             'data' => $entries,
         ];
 
-        return view('admin_dashboard', compact('data'));
+        return view('/admin_dashboard', compact('data'));
+    }
+
+    public function upload_profile_picture(Request $r)
+    {
+        $sp = new StudentsPhotos;
+        $sp->student_id = Session::get('student_id');
+        if ($r->file('profile_picture')) {
+            $file = $r->file('profile_picture');
+            $filename = date('YmdHiu') . $file->getClientOriginalName();
+            $file->move(public_path('img/user_profiles'), $filename);
+            $sp->image = $filename;
+        }
+        $sp->save();
+
+        return redirect('/user_account')->with('success', 'Profile picture updated!');
+    }
+
+    public function upload_profile_picture_form()
+    {
+        return view('profile_upload_picture');
     }
 
     public function logout()
     {
-=======
-    public function logout()
-    {
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
         if (Session::has('user_id')) {
             Session::flush();
         }
@@ -72,15 +86,7 @@ class UserController extends Controller
                 if (Session::get('role') == 'admin') {
                     return redirect('/students')->with('success', 'Logged in as admin!');
                 } else if (Session::get('role') == 'user') {
-<<<<<<< HEAD
                     return redirect('/user_dashboard')->with('success', 'Welcome, ' . Session::get('first_name') . '!');
-=======
-<<<<<<< HEAD
-                    return redirect('/user_dashboard')->with('success', 'Welcome, ' . Session::get('first_name') . '!');
-=======
-                    return redirect('/user_page')->with('success', 'Welcome, ' . Session::get('first_name') . '!');
->>>>>>> 6c63ac9ae85471de6d30031f1b82958acc553f63
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
                 }
             } else {
                 return redirect('/user_login')->with('fail', 'Incorrect password.');
@@ -92,18 +98,8 @@ class UserController extends Controller
 
     public function user_login()
     {
-<<<<<<< HEAD
         return view('user_dashboard');
     }
 }
 
 
-=======
-<<<<<<< HEAD
-        return view('user_dashboard');
-=======
-        return view('user_page');
->>>>>>> 6c63ac9ae85471de6d30031f1b82958acc553f63
-    }
-}
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94

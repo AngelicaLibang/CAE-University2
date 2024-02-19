@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts/head')
-<<<<<<< HEAD
     {{-- @include('layouts/navbar') --}}
-=======
-    @include('layouts/navbar')
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
     @include('layouts/bootstap')
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/about.css">
@@ -73,7 +69,6 @@
     </style>
 </head>
 <body>
-<<<<<<< HEAD
     {{-- first navbar --}}
  <nav class="navbar bg-body-tertiary" id="color_nav">
     <div class="container-fluid px-1">
@@ -232,17 +227,11 @@
             </div>
     </div>
 </nav>
-=======
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
 
     <div class="card">
         <h2>Inquiry Form</h2>
         <form action="/submit_inquiry" method="POST">
-<<<<<<< HEAD
             @csrf
-=======
-            @csrf <!-- CSRF protection for Laravel -->
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
             <label for="first_name">First Name: *</label>
             <input type="text" id="first_name" name="first_name" required>
 

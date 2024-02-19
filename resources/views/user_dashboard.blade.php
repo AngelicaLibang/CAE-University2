@@ -12,11 +12,7 @@
 
     <div class="container" id="card_container">
         <div class="row" id="text">
-<<<<<<< HEAD
-            <div class="col-lg-12">
-=======
             <div class="col-lg-9">
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
                 <h1>Dashboard</h1>
                 <hr>
                         <div class="row">
@@ -28,52 +24,7 @@
                                     </div>
                                   </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/program.jpg" alt="Card image">
-                                    <div class="card-body">
-                                         <h4 class="card-title"> <a href="#" id="href" >Computer Programming</a> </h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="img/advance.jpg" alt="Card image">
-                                    <div class="card-body">
-                                         <h4 class="card-title"> <a href="#" id="href" >Advance Computer Programming</a> </h4>
-                                    </div>
-                                  </div>
-                            </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="card">
-                                        <img class="card-img-top" src="img/data.jpg" alt="Card image">
-                                        <div class="card-body">
-                                             <h4 class="card-title"> <a href="#" id="href" >Data Structures and Algorithms</a> </h4>
 
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="card">
-                                        <img class="card-img-top" src="img/information.jpg" alt="Card image">
-                                        <div class="card-body">
-                                             <h4 class="card-title"> <a href="#" id="href" >Information Management</a> </h4>
-
-                                        </div>
-                                      </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="card">
-                                        <img class="card-img-top" src="img/human computer.jpg" alt="Card image">
-                                        <div class="card-body">
-                                             <h4 class="card-title"> <a href="#" id="href" >Human-computer interaction</a> </h4>
-
-                                        </div>
-                                      </div>
-                                </div>
-                                </div>
 
                             </div>
 

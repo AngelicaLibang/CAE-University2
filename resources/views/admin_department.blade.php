@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/admin.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<<<<<<< HEAD
     <style>
         table {
             margin-left: 14%;
@@ -46,7 +45,3 @@
     </div>
     </body>
     </html>
-=======
-</head>
-<body>
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94

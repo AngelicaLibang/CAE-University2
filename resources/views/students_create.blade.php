@@ -4,6 +4,7 @@
     @include('layouts/admin_navbar')
     <script src="/js/admin.js"></script>
     <link rel="stylesheet" href="/css/admin.css"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -24,18 +25,6 @@
                 <div class="mb-3">
                     <label for="birthdate" class="form-label">Birthdate</label>
                     <input type="date" class="form-control" id="birthdate" name="birthdate" required>
-                </div>
-                <div class="mb-3">
-                    <label for="text" class="form-label">Year Level</label>
-                    <input type="text" class="form-control" id="year_level" name="year_level" required>
-                </div>
-                <div class="mb-3">
-                    <label for="date_enrolled" class="form-label">Date Enrolled</label>
-                    <input type="date" class="form-control" id="date_enrolled" name="date_enrolled" required>
-                </div>
-                <div class="mb-3">
-                    <label for="text" class="form-label">Province</label>
-                    <input type="text" class="form-control" id="province" name="province" required>
                 </div>
                 <div class="mb-3">
                     <label for="gender" class="form-label">Gender</label>

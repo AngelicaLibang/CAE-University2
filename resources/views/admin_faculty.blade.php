@@ -4,8 +4,8 @@
     @include('layouts/admin_navbar')
     <script src="js/admin.js"></script>
     <link rel="stylesheet" href="css/admin.css"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<<<<<<< HEAD
 
 </head>
 <body>
@@ -74,17 +74,3 @@
     </div>
 </body>
 </html>
-=======
-<<<<<<< HEAD
-</head>
-
-<body>
-
-<body>
-</html>
-=======
-
-</head>
-<body>
->>>>>>> 6c63ac9ae85471de6d30031f1b82958acc553f63
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94

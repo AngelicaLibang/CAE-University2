@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @include('layouts/bootstap')
-   <link rel="stylesheet" href="css/user_page.css">
-   <link rel="stylesheet" href="css/calendar.css">
-    <script src="js/calendar.js"></script>
+    <link rel="stylesheet" href="css/user_page.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <title>Profile</title>
 </head>
 <body>
     @include('layouts/left_navbar')
-    @include('layouts/calendar')
-
+    @include('layouts/messages')
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
-<<<<<<< HEAD
-=======
                 <h1 class="card-title">My Profile</h1>
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
-
-                <!-- Profile Picture -->
-                {{-- <div class="text-center">
-                    @if ($profile_picture)
+                {{-- <p>Student ID: {{$students -> student_id}}</p> --}}
+                {{-- <!-- Profile Picture -->
+                <div class="text-center">
+                 @if ($profile_picture)
                     <img src="img/user_profiles/{{$profile_picture -> image}}" alt="blank profile picture" width="200px" /><br />
                     @else
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/no-profile-picture-icon.png" alt="blank profile picture" width="100px" /><br />
@@ -29,16 +26,51 @@
                     <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
                         Upload profile picture
                     </button>
+
+
+                    <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                Upload profile picture
+            </button> --}}
+
+            <!-- Modal -->
+            {{-- <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadModalLabel">Upload Profile Picture</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Add your upload form here -->
+                            <form action="/user_account/upload" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="profilePicture" class="form-label">Choose Profile Picture</label>
+                                    <input type="file" class="form-control" id="profilePicture" name="profilePicture">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Upload</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 </div> --}}
 
                 <!-- Personal Information -->
-             <h2>Personal information</h2>
+                <h2>Personal information</h2>
                 <table class="table">
                     <tbody>
                         <tr>
                             <td>Full name:</td>
                             <td>
                                 <input type="text" value="{{$students->last_name}}" name="last_name" id="last_name" class="form-control">
+                            </td>
+                            <td>
+                                <input type="text" value="{{$students->middle_name}}" name="middle_name" id="middle_name" class="form-control">
                             </td>
                             <td>
                                 <input type="text" value="{{$students->first_name}}" name="first_name" id="first_name" class="form-control">
@@ -105,7 +137,7 @@
             </div>
         </div>
 
-        {{-- <!-- Your Classes -->
+        <!-- Your Classes -->
         <div class="card mt-4">
             <div class="card-body">
                 <h1 class="card-title">Your Classes</h1>
@@ -118,11 +150,7 @@
                             <th>Room</th>
                         </tr>
                     </thead>
-<<<<<<< HEAD
-                    <tbody>m
-=======
                     <tbody>
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
                         @foreach ($classes as $c)
                         <tr>
                             <td>{{$c -> class_id}}</td>
@@ -135,20 +163,7 @@
                 </table>
             </div>
         </div>
-    </div> --}}
-
-<<<<<<< HEAD
-    <div class="col-lg-3 todo-items" id="todo">
-=======
-    <div class="col-lg-3 todo-items" id="todo"> <!-- Take up 3 columns for the To-Do items -->
->>>>>>> b595f56fb1480697710a208ad54909626abd0c94
-        <h3>To-Do List</h3>
-        <ul class="list-group">
-            <li class="list-group-item">Nothing to show</li>
-            <li class="list-group-item">Recent Feedback</li>
-        </ul>
-        <button type="button" class="btn btn-primary mt-3">View Grades</button>
     </div>
-</div>
 </body>
+
 </html>

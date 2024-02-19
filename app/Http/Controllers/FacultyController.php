@@ -53,28 +53,27 @@ class FacultyController extends Controller
     public function edit_faculty_form(string $id)
     {
         $faculty = Faculty::query()
-           ->select('*')
-           ->where('faculty_id', '=', $id)
-           ->get()
-           ->first();
+            ->select('*')
+            ->where('faculty_id', '=', $id)
+            ->get()
+            ->first();
 
-           return view('admin_faculty_edit', compact('faculty'));
-
+        return view('admin_faculty_edit', compact('faculty'));
     }
 
     public function add_faculty(Request $r)
     {
-       $faculty = new Faculty;
-       $faculty->first_name = $r->input('first_name');
-       $faculty->last_name = $r->input('last_name');
-       $faculty->birthdate = $r->input('birthdate');
-       $faculty->gender = $r->input('gender');
-       $faculty->position = $r->input('position');
-       $faculty->department = $r->input('department');
-       $faculty->date_entered = $r->input('date_entered');
-       $faculty->mobile_number = $r->input('mobile_number');
-       $faculty->email_address = $r->input('email_address');
-       $faculty->save();
+        $faculty = new Faculty;
+        $faculty->first_name = $r->input('first_name');
+        $faculty->last_name = $r->input('last_name');
+        $faculty->birthdate = $r->input('birthdate');
+        $faculty->gender = $r->input('gender');
+        $faculty->position = $r->input('position');
+        $faculty->department = $r->input('department');
+        $faculty->date_entered = $r->input('date_entered');
+        $faculty->mobile_number = $r->input('mobile_number');
+        $faculty->email_address = $r->input('email_address');
+        $faculty->save();
 
         return redirect("/admin_faculty")
             ->with('success', 'Successfully added');
@@ -83,7 +82,7 @@ class FacultyController extends Controller
 
     public function add_faculty_form()
     {
-        return view ('admin_faculty_create');
+        return view('admin_faculty_create');
     }
 
     public function admin_faculty_show(string $id)
@@ -97,31 +96,29 @@ class FacultyController extends Controller
         return view('admin_faculty_show', compact('faculty'));
     }
 
-        public function index(Request $r)
-        {
-                $faculty = Faculty::query()
-                ->select('faculty_id', 'first_name', 'last_name', 'position', 'province');
+    public function index(Request $r)
+    {
+        $faculty = Faculty::query()
+            ->select('faculty_id', 'first_name', 'last_name', 'position', 'province');
 
-            if ($r->filled('search')) {
-                $faculty->where(function ($query) use ($r) {
-                    $query->where('first_name', 'LIKE', '%' . $r->input('search') . '%')
-                        ->orWhere('last_name', 'LIKE', '%' . $r->input('search') . '%');
-                });
-            }
+        if ($r->filled('search')) {
+            $faculty->where(function ($query) use ($r) {
+                $query->where('first_name', 'LIKE', '%' . $r->input('search') . '%')
+                    ->orWhere('last_name', 'LIKE', '%' . $r->input('search') . '%');
+            });
+        }
 
-            if ($r->filled('position')) {
-                $faculty = $faculty->where('position', '=', $r->input('position'));
-            }
-            if ($r->filled('department')) {
-                $faculty = $faculty->where('department', '=', $r->input('department'));
-            }
-
-
-            $total_faculty = DB::select("SELECT COUNT(*) AS total FROM faculty");
-            $faculty=DB::select("SELECT faculty_id, last_name, first_name, position, department  FROM faculty ORDER BY faculty_id DESC LIMIT 10");
-
-            return view('admin_faculty', compact('total_faculty', 'faculty'));
+        if ($r->filled('position')) {
+            $faculty = $faculty->where('position', '=', $r->input('position'));
+        }
+        if ($r->filled('department')) {
+            $faculty = $faculty->where('department', '=', $r->input('department'));
         }
 
 
+        $total_faculty = DB::select("SELECT COUNT(*) AS total FROM faculty");
+        $faculty = DB::select("SELECT faculty_id, last_name, first_name, position, department  FROM faculty ORDER BY faculty_id DESC LIMIT 10");
+
+        return view('admin_faculty', compact('total_faculty', 'faculty'));
+    }
 }
